@@ -1,0 +1,32 @@
+#Project 8 Solutions
+
+#Albert Zhang
+
+#No peer collaborators
+#NA
+#https://www.oreilly.com/library/view/unix-text-processing/9780810462915/Chapter08.html
+
+#1a
+#I piped the data into a cut command to specify the store column, piped it into a sort command, then 
+#ran a uniq command to count the instances of each variable.
+cat /class/datamine/data/8451/The_Complete_Journey_2_Master/5000_transactions.csv |cut -d, -f7| sort |  uniq -c 
+#There were 2463343 transactions in Central, 3263360 in East, 2221500 in South and 2677350 in West.
+
+#1b 
+#I imported the data in the first line, then cut the columns on city and state and ran a count on #instances of unique variables.
+wget http://stat-computing.org/dataexpo/2009/airports.csv
+cat airports.csv | cut -d, -f3,4| sort| uniq -c | sort -n
+#The cities that had the most airports were Houston TX, New York NY, Miami FL, and Indianapolis IN
+
+#2a
+#I piped the data into a cut command to isolate pickup id, piped it into a sort command, isolated unique #variables, then sorted those by number.
+cat /class/datamine/data/taxi/yellow/yellow_tripdata_2019-06.csv | cut -d, -f8| sort | uniq -c| sort -n
+#237 was the most popular pickup ID.
+
+#2b
+#I piped the data into a cut command to isolate city and state, then sorted it, ran a uniq command to #remove repeat variables and count the number of occurances and sorted it by number of occurances.
+cat /class/datamine/data/election/itcont2020.txt | cut -d\| -f9,10| sort | uniq -c | sort -n
+#New York, NY had the largest number of donations.
+
+#3a
+#It took roughly four minutes for the code to run in R.
